@@ -102,9 +102,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    
-    
 	// Do any additional setup after loading the view.
 }
 
@@ -116,16 +113,29 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [self presentViewControllers];
+}
+
+- (void) presentViewControllers
+{
     if(self.launchYouGotPownedView)
     {
         IKPownedViewController *pownedViewController = [[IKPownedViewController alloc] init];
-        [self.parentViewController presentViewController:pownedViewController animated:NO completion:nil];
+        [self.tabBarController presentViewController:pownedViewController animated:NO completion:nil];
+        return;
     }
     else if(self.launchYouAreTheWinnerView)
     {
         IKWinnerViewController *winnerViewController = [[IKWinnerViewController alloc] init];
-        [self.parentViewController presentViewController:winnerViewController animated:YES completion:nil];
+        [self.tabBarController presentViewController:winnerViewController animated:YES completion:nil];
+        return;
     }
+//    else
+//    {
+//        //        UIViewController *presentedViewContorller = [self.parentViewController presentedViewController];
+//        [self.tabBarController dismissViewControllerAnimated:YES  completion:nil];
+//    }
+
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -210,6 +220,8 @@
     {
         self.launchYouAreTheWinnerView = YES;
     }
+    
+
 }
 
 

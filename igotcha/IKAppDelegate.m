@@ -140,11 +140,12 @@
 {
     NSString *discription = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
     
+    [self.tabBarController dismissViewControllerAnimated:YES completion:nil];
+    
     if([discription isEqualToString:@"You Won!"])
     {
         IKWinnerViewController *winnerViewController = [[IKWinnerViewController alloc] init];
         [self.tabBarController presentViewController:winnerViewController animated:YES completion:nil];
-        
         [[IKUserModel sharedUserModel] updateFromServer];
 
     }
@@ -152,7 +153,6 @@
     {
         IKPownedViewController *pownedViewController = [[IKPownedViewController alloc] init];
         [self.tabBarController presentViewController:pownedViewController animated:YES completion:nil];
-        
         [[IKUserModel sharedUserModel] updateFromServer];
 
     }

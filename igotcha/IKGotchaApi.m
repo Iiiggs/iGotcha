@@ -73,7 +73,7 @@
 
 + (void) confirmEliminationForUser:(NSString*)user
 {
-    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://igotchaapp.com/dev/game/ConfirmElimination/"]];
+    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://igotchaapp.com/dev/game/ConfirmElimination/"]]; 
     [request setHTTPMethod:@"POST"];
     
     NSString *post =[[NSString alloc] initWithFormat:@"uid=%@",user];
